@@ -674,4 +674,10 @@ if __name__ == '__main__':
     out_product_name_list = get_productnames_from_producturls(out_product_url_list)
 
     # 多进程获取符合格式的价格
-    main(get_formdata_and_price_by_url_batch)
+    try:
+        main(get_formdata_and_price_by_url_batch)
+    except:
+        traceback.print_exc(limit=None, file="../logfiles/youdemai" + str(time.strftime("%Y-%m-%d %H-%M-%S",time.localtime(time.time())))+ ".txt", chain=True)
+    finally:
+        times.sleep(20)  # 休眠20秒，等待系统释放资源
+        main(get_formdata_and_price_by_url_batch)
