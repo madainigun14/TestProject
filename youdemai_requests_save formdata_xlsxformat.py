@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*- python 3.6.5
+# -*- coding: utf-8 -*- python 3.6.5
 import time, re, os
 import xlrd, xlwt, xlutils, openpyxl
 import json
