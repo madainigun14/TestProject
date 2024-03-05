@@ -4,7 +4,22 @@ from lxml import etree
 
 
 def page(total, amount):
-    #Remainder quotient
+    """
+    注意，后边的条件 
+    第一页 from=0
+    第二页 from=100
+    第三页 from=200
+    第四页 from=300
+    第五页 from=400
+    第六页 from=500
+    实际有627条查询结果
+    total=627,
+    amount=100 
+    quotient=6 
+    Remainder=27
+    
+    """
+
 
     quotient, remainder = divmode(total, amount)
     
@@ -12,6 +27,16 @@ def page(total, amount):
 
 
 def get_words():
+    """
+    注意，后边的条件 
+    第一页 from=0
+    第二页 from=100
+    第三页 from=200
+    第四页 from=300
+    第五页 from=400
+    第六页 from=500
+    实际有627调数据
+    """
     _url_0="https://thai-notes.com/dictionaries/connectetym.php?count&langs='zh','yue','hak','ltc','cmn','nan','och','zhx-teo','ms'&types='bor','inh','der','cog'"
     _url_1="https://thai-notes.com/dictionaries/connectetym.php?filter&langs='zh','yue','hak','ltc','cmn','nan','och','zhx-teo','ms'&types='bor','inh','der','cog'&from=0"
 
