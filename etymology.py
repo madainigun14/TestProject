@@ -4,6 +4,7 @@ import requests
 langs_all = "'thm','aho','aio','ami','ar','arc','aav','bn','pcc','qfa-onb-pro','my','ca','ceb','cjm','cja','zh','yue','hak','ltc','cmn','nan','och','zhx-teo','cog','da','dv','kmc','nl','dum','dz','en','fr','fro','lg','de','el','grc','gu','xhm','nan-hai','haw','he','hil','hi','lic','nan-hok','id','iu','tts','it','ium','ja','jv','kar','ckv','kaw','kht','kha','km','kxm','okz','okz-P','okz-A','kkh','ko','uun','kdt','lbc','lo','lwl','lcp','la','onb','khb','mg','ms','mfa','ml','mi','mr','meo','mkh-mmn','mnw','mkh','mul','mtq','ne','zhn','nut','cbn','nyw','gmq-oda','omx','obr','ota','pwn','pau','pi','fa','phk','pt','pra','map-pro','dra-pro','qfa-lic-pro','hmx-pro','inc-pro','ine-pro','iir-pro','qfa-kms-pro','mkh-khm-pro','poz-mly-pro','poz-mcm-pro','poz-pro','poz-msa-pro','mkh-pro','sit-pro','tai-swe-pro','tai-pro','mkh-vie-pro','pim','raj','ru','skb','sa','sh','shn','si','fos','es','swi','su','sw','tl','blt','tyj','twh','tdd','ta','tyz','tai-shz','te','th','nod','sou','ssf','bo','txb','tr','ur','sa-ved','vi','yno','za','zzj'"
 langs_mainstream = "'ar','my','zh','yue','hak','ltc','cmn','nan','och','zhx-teo','cog','kmc','en','fr','fro','de','el','hi','id','ja','km','kxm','okz','okz-P','okz-A','ko','ms','pi','mkh-khm-pro','mkh-vie-pro','sa','es','blt','tyj','twh','tdd','th','nod','sou','bo','vi','za','zzj'"
 langs_chinese = "'zh','yue','hak','ltc','cmn','nan','och','zhx-teo'"
+langs = langs_mainstream
 types = "'bor','inh','der','cog'"  # 词汇类型：借用、继承、派生、同源
 
 def page(total, amount):
@@ -33,7 +34,7 @@ def get_words():
     
     _from = 0  # 分页后，数据的起始值 0
     _url_0="https://thai-notes.com/dictionaries/connectetym.php?count&langs='zh','yue','hak','ltc','cmn','nan','och','zhx-teo','ms'&types='bor','inh','der','cog'"  # 无法获得想要的数据
-    _url_1="https://thai-notes.com/dictionaries/connectetym.php?filter&langs=" + langs_all + "&types=" + types + "&from=" + str(_from)
+    _url_1="https://thai-notes.com/dictionaries/connectetym.php?filter&langs=" + langs + "&types=" + types + "&from=" + str(_from)
 
     
     # 请求头，自己编一个
@@ -63,7 +64,7 @@ def get_words():
         """
         遍历q次分页，把返回值添加的文本文件里
         """
-        _url_2 = "https://thai-notes.com/dictionaries/connectetym.php?filter&langs=" + langs_all + "&types=" + types + "&from=" + str(100*(i+1))
+        _url_2 = "https://thai-notes.com/dictionaries/connectetym.php?filter&langs=" + langs + "&types=" + types + "&from=" + str(100*(i+1))
         print(_url_2)
         try:
             with requests.request(method="GET", url=_url_2, headers=_request_headers)as response:
@@ -75,8 +76,3 @@ def get_words():
         
     
 get_words()
-
-
-
-
-
