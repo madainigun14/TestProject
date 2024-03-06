@@ -1,3 +1,6 @@
+# https://thai-notes.com/dictionaries/etymdict.html 
+# 泰国国家电子和计算机技术中心NECTEC(National Electronics and Computer Technology Center)
+
 import re
 import requests
 
