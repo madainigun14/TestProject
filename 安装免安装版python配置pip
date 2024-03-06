@@ -3,19 +3,22 @@ https://www.python.org/downloads/windows/     找到  嵌入版，这里是 pyth
 
 2.解压，把加压的内容存放到:
 C:\Software\python39
-
 然后把目录C:\Software\python39添加到path，
-然后cd到刚才的目录，python get-pip.py，安装pip
 
-3.然后找到python39._path文件，在文件最后加上一句代码，指向site-packages的位置
+3.去bootstrap网站，下载get-pip.py文件，或者在C:\Software\python39目录下新建一个get-pip.py直接拷贝代码进去。
+https://bootstrap.pypa.io/get-pip.py
+
+cd到刚才的目录，python get-pip.py，安装pip
+
+4.然后找到python39._path文件，在文件最后加上一句代码，指向site-packages的位置
 
 这里是
 C:\Software\python39\Lib\site-packages\
 
 参考：https://blog.csdn.net/qq_45747178/article/details/132855443
 
-4.把pip执行文件所在目录添加到path，这里是：
+5.把pip执行文件所在目录添加到path，这里是：
 C:\Software\python39\Scripts
 
-5.在命令行分别输入python， pip验证是否安装OK
+6.在命令行分别输入python， pip验证是否安装OK
 
